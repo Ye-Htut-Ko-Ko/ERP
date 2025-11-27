@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "ES2020",
+    "lib": ["ES2021"],
+
+    /* Module System (ESM with Node) */
+    "module": "nodenext",
+    "moduleResolution": "NodeNext",
+    "moduleDetection": "force",
+
+    /* Node + ESM support */
+    // "allowImportingTsExtensions": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+
+    /* Output */
+    "outDir": "dist",
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+
+    /* Strictness */
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "skipLibCheck": true
+  },
+
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

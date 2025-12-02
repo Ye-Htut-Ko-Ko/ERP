@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "ERP System (POS)",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -10,7 +10,7 @@
     "build": "rimraf dist && tsc"
   },
   "keywords": [ ],
-  "author": "",
+  "author": "Wai Hlyan Phyo",
   "license": "ISC",
   "packageManager": "pnpm@10.23.0",
   "dependencies": {

@@ -35,9 +35,10 @@ app.get( "/", ( req: Request, res: Response ) => {
 } );
 
 /* 404 Handler */
-app.all( "*", ( req: Request, res: Response, next: NextFunction ) => {
+app.use( ( req: Request, res: Response, next: NextFunction ) => {
   next( new NotFoundError( `Cannot find ${req.originalUrl}` ) );
 } );
+
 
 /* Global Error Handler */
 app.use( globalErrorHandler );

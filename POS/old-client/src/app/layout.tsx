@@ -1,10 +1,9 @@
+import "./globals.css";
 import * as React from "react";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
-import theme from "@/theme";
-import ModeSwitch from "@/components/ModeSwitch";
+import { CssBaseline } from "@mui/material";
+import AppThemeProvider from "@/AppThemeProvider";
 
 export default function RootLayout(props: { children: React.ReactNode }) {
   return (
@@ -12,12 +11,10 @@ export default function RootLayout(props: { children: React.ReactNode }) {
       <body>
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider options={{ enableCssLayer: true }}>
-          <ThemeProvider theme={theme}>
-            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+          <AppThemeProvider>
             <CssBaseline />
-            {/* <ModeSwitch /> */}
             {props.children}
-          </ThemeProvider>
+          </AppThemeProvider>
         </AppRouterCacheProvider>
       </body>
     </html>

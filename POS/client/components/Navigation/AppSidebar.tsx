@@ -1,7 +1,19 @@
 "use client";
 
 import * as React from "react";
-import { ShoppingCart, Users, LayoutDashboard, Package, ShieldUser } from "lucide-react";
+import {
+  ShoppingCart,
+  Users,
+  LayoutDashboard,
+  Package,
+  ShieldUser,
+  ChartNoAxesCombined,
+  ClipboardList,
+  Store,
+  ReceiptText,
+  ChartColumn,
+  TrendingUp,
+} from "lucide-react";
 
 import { NavMain } from "@/components/Navigation/NavMain";
 import { NavUser } from "@/components/Navigation/NavUser";
@@ -28,33 +40,69 @@ const data = {
     plan: "Development Group",
   },
 
-  navMain: [
+  Overview: [
     {
       title: "Dashboard",
       url: "/dashboard",
       icon: LayoutDashboard,
     },
+  ],
+  Shop: [
     {
       title: "POS",
-      url: "/dashboard/pos",
+      url: "/dashboard/shop/pos",
       icon: ShoppingCart,
     },
     {
       title: "Orders",
-      url: "/dashboard/orders",
-      icon: Package,
+      url: "/dashboard/shop/orders",
+      icon: ClipboardList,
+    },
+    {
+      title: "Storefront",
+      url: "/dashboard/shop/store",
+      icon: Store,
     },
   ],
-  NavUser: [
+  Inventory: [
+    {
+      title: "Stocks",
+      url: "/dashboard/inventory/stocks",
+      icon: Package,
+    },
+    {
+      title: "Invoices",
+      url: "/dashboard/inventory/invoices",
+      icon: ReceiptText,
+    },
+  ],
+  Users: [
     {
       title: "Customers",
-      url: "/dashboard/user-control/customers",
+      url: "/dashboard/user/customers",
       icon: Users,
     },
     {
       title: "Admins",
-      url: "/dashboard/user-control/admins",
+      url: "/dashboard/user/admins",
       icon: ShieldUser,
+    },
+  ],
+  Analytics: [
+    {
+      title: "Finance",
+      url: "/dashboard/analytics/finance",
+      icon: ChartNoAxesCombined,
+    },
+    {
+      title: "Sales",
+      url: "/dashboard/analytics/sales",
+      icon: ChartColumn,
+    },
+    {
+      title: "Inventory",
+      url: "/dashboard/analytics/inventory",
+      icon: TrendingUp,
     },
   ],
 };
@@ -62,14 +110,17 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader className="border border-b">
+      <SidebarHeader className="border-b border-sidebar-border inset-0 bg-sidebar text-sidebar-foreground">
         <TeamSwitcher company={data.company} />
       </SidebarHeader>
-      <SidebarContent className="py-2">
-        <NavMain items={data.navMain} />
-        <NavMain label="User Management" items={data.NavUser} />
+      <SidebarContent className="py-2 bg-sidebar text-sidebar-foreground gap-0 scrollbar-hide">
+        <NavMain label="Overview" items={data.Overview} />
+        <NavMain label="Shop" items={data.Shop} />
+        <NavMain label="Inventory" items={data.Inventory} />
+        <NavMain label="Users" items={data.Users} />
+        <NavMain label="Analytics" items={data.Analytics} />
       </SidebarContent>
-      <SidebarFooter className="border border-t">
+      <SidebarFooter className="border-t border-sidebar-border bg-sidebar text-sidebar-foreground">
         <NavUser user={data.user} />
       </SidebarFooter>
       <SidebarRail />

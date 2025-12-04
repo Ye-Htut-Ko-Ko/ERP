@@ -44,7 +44,7 @@ export function TeamSwitcher({
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <activeTeam.logo className="aspect-square rounded-lg !w-8 !h-8" />
+          <activeTeam.logo className="relative z-50 aspect-square rounded-lg w-8! h-8!" />
           <div className="grid flex-1 text-left text-sm leading-0.5">
             <span className="truncate font-bold text-lg leading-5">{activeTeam.name}</span>
             <span className="truncate text-xs">{activeTeam.plan}</span>

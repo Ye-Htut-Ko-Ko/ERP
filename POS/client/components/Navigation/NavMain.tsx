@@ -15,6 +15,7 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@/components/ui/sidebar";
 
 export function NavMain({
@@ -36,6 +37,15 @@ export function NavMain({
   labelNode?: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const { isMobile, setOpenMobile } = useSidebar();
+
+  const handleMenuClick = () => {
+    if (isMobile) {
+      setTimeout(() => {
+        setOpenMobile(false);
+      }, 200);
+    }
+  };
 
   return (
     <SidebarGroup className="py-0">
@@ -62,7 +72,7 @@ export function NavMain({
             return (
               <SidebarMenuItem key={item.title}>
                 <SidebarMenuButton asChild isActive={!!autoActive} tooltip={item.title}>
-                  <Link href={item.url ?? "#"}>
+                  <Link href={item.url ?? "#"} onClick={handleMenuClick}>
                     {item.icon && <item.icon />}
                     <span className="flex-1 min-w-0 truncate whitespace-nowrap">{item.title}</span>
                   </Link>
@@ -94,7 +104,7 @@ export function NavMain({
                       return (
                         <SidebarMenuSubItem key={subItem.title}>
                           <SidebarMenuSubButton asChild isActive={!!subActive}>
-                            <Link href={subItem.url}>
+                            <Link href={subItem.url} onClick={handleMenuClick}>
                               <span className="flex-1 min-w-0 truncate whitespace-nowrap">
                                 {subItem.title}
                               </span>

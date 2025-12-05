@@ -10,7 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "../ui/breadcrumb";
-import { ModeToggle } from "../theme/mode-switch";
+import { ModeToggle } from "../theme/ModeSwitch";
 import { BellRing } from "lucide-react";
 
 type Crumb = {

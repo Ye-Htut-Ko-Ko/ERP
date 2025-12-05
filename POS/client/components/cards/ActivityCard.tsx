@@ -41,7 +41,9 @@ const ActivityCard = ({ label, items, variant = "default" }: ActivityCardProps) 
                 <p className="text-sm font-medium">{item.label}</p>
                 <p className="text-xs text-muted-foreground">{item.description}</p>
               </div>
-              <span className="text-sm font-semibold">{item.action}</span>
+              <span className={`text-sm font-semibold ${isWarning ? "text-warning" : ""}`}>
+                {item.action}
+              </span>
             </div>
           ))}
         </div>

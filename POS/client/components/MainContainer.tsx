@@ -10,7 +10,7 @@ const MainContainer = ({
   return (
     <main
       className={cn(
-        "p-2.5 md:p-4 h-[calc(100dvh-4rem)] overflow-y-scroll scroll-smooth scrollbar-hide",
+        "p-2.5 md:p-4 !pt-2 h-[calc(100dvh-4rem)] overflow-y-scroll scroll-smooth scrollbar-hide",
         className
       )}
     >

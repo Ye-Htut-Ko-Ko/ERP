@@ -11,7 +11,7 @@ type Info = {
 
 export function KpiCard({ info }: { info: Info }) {
   return (
-    <Card className="@container/card gap-1.5">
+    <Card className="@container/card gap-1.5 ">
       <CardHeader>
         <CardDescription className="flex gap-1.5 items-center text-foreground font-semibold text-md">
           {info.icon && <info.icon size={16} />} <p>{info.label}</p>

@@ -3,37 +3,79 @@ import LowStockAlerts from "@/components/cards/LowStockAlerts";
 import { KpiCard } from "@/components/cards/KpiCard";
 import MainContainer from "@/components/MainContainer";
 import Header from "@/components/Navigation/Header";
-import { DollarSign, ShoppingCart, Package } from "lucide-react";
+import { DollarSign, Package } from "lucide-react";
 
 const recentActivityItems = [
   {
     id: 1,
-    icon: <ShoppingCart className="h-5 w-5 text-primary" />,
-    label: "Order #1001 completed",
-    description: "1 hours ago",
-    action: "$60.00",
+    status: "order" as const,
+    name: "Wai Hlyan Phyo",
+    oid: "327",
+    time: "1 hours ago",
   },
   {
     id: 2,
-    icon: <ShoppingCart className="h-5 w-5 text-primary" />,
-    label: "Order #1002 completed",
-    description: "2 hours ago",
-    action: "$70.00",
+    status: "processing" as const,
+    oid: "325",
+    admin: "Admin Two",
+    time: "3 hours ago",
   },
   {
     id: 3,
-    icon: <ShoppingCart className="h-5 w-5 text-primary" />,
-    label: "Order #1003 completed",
-    description: "3 hours ago",
-    action: "$80.00",
+    status: "shipping" as const,
+    oid: "323",
+    admin: "Admin One",
+    time: "4 hours ago",
   },
   {
     id: 4,
-    icon: <ShoppingCart className="h-5 w-5 text-primary" />,
-    label: "Order #1004 completed",
-    description: "4 hours ago",
-    action: "$90.00",
+    status: "delivered" as const,
+    oid: "315",
+    admin: "Admin Two",
+    time: "2 hours ago",
   },
+  {
+    id: 5,
+    status: "canceled" as const,
+    uid: "Mg Mg",
+    oid: "314",
+    time: "4 hours ago",
+  },
+  // {
+  //   id: 5,
+  //   status: "canceled" as const,
+  //   admin: "Admin One",
+  //   oid: "312",
+  //   time: "4 hours ago",
+  // },
+  // {
+  //   id: 6,
+  //   status: "comment" as const,
+  //   name: "John Doe",
+  //   pid: "1320",
+  //   time: "5 hours ago",
+  // },
+  // {
+  //   id: 7,
+  //   status: "review" as const,
+  //   name: "Ye Htut Ko Ko",
+  //   pid: "1429",
+  //   time: "4 hours ago",
+  // },
+  // {
+  //   id: 8,
+  //   status: "suspend" as const,
+  //   name: "Oliver",
+  //   admin: "Admin One",
+  //   time: "5 hours ago",
+  // },
+  // {
+  //   id: 9,
+  //   status: "stock_arrived" as const,
+  //   name: "TechSupply Co",
+  //   did: "43",
+  //   time: "1 hour ago",
+  // },
 ];
 
 const lowStockItems = [
@@ -48,14 +90,14 @@ const lowStockItems = [
     id: 2,
     icon: <Package className="h-5 w-5 text-warning" />,
     label: "USB Cable",
-    description: "Only 2 left",
+    description: "Only 3 left",
     action: "Restock",
   },
   {
     id: 3,
     icon: <Package className="h-5 w-5 text-warning" />,
     label: "Keyboard",
-    description: "Only 3 left",
+    description: "Only 1 left",
     action: "Restock",
   },
   {
@@ -71,8 +113,12 @@ export default function DashBoardHome() {
   return (
     <div>
       <Header crumbs={[{ label: "Dashboard" }]} />
-      <MainContainer className="gap-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-2 md:gap-4 mb-2 md:mb-4">
+      <MainContainer className="space-y-4">
+        <div>
+          <h1 className="text-3xl font-bold">Overview</h1>
+          <p className="text-muted-foreground">Real-time metrics and recent activity</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 ">
           <KpiCard
             info={{
               label: "Total Profit",
@@ -110,7 +156,7 @@ export default function DashBoardHome() {
             }}
           />
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
           <RecentActivity items={recentActivityItems} />
           <LowStockAlerts items={lowStockItems} />
         </div>

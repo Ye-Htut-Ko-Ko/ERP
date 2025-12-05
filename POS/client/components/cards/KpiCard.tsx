@@ -9,7 +9,7 @@ type Info = {
   status?: string;
 };
 
-export function SectionCard({ info }: { info: Info }) {
+export function KpiCard({ info }: { info: Info }) {
   return (
     <Card className="@container/card gap-1.5">
       <CardHeader>
